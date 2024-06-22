@@ -33,9 +33,7 @@ jobs:
         quiet: true # optional
 
     - name: Update vcpkg
-      uses: WesleyDucharme/action-update-vcpkg-repository@v0.4
-      with:
-        remote-vcpkg-repository: https://github.com/microsoft/vcpkg.git
+      run: rmdir /S C:\vcpkg & cd C:\ & git clone --recursive https://github.com/microsoft/vcpkg.git & cd vcpkg & ./bootstrap-vcpkg.bat
     
     - name: Run vcpkg
       run: cd ${{github.workspace}}/ & vcpkg --feature-flags=manifests install

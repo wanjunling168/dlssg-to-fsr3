@@ -32,6 +32,11 @@ jobs:
         # silence GitHub Annotation notice displayed if resolving `latest` into Vulkan SDK release number
         quiet: true # optional
 
+    - name: Update vcpkg
+      uses: WesleyDucharme/action-update-vcpkg-repository@v0.4
+      with:
+        remote-vcpkg-repository: https://github.com/microsoft/vcpkg.git
+    
     - name: Run vcpkg
       run: cd ${{github.workspace}}/ & vcpkg --feature-flags=manifests install
 

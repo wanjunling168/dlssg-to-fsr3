@@ -33,7 +33,7 @@ jobs:
         quiet: true # optional
 
     - name: Update vcpkg
-      run: rmdir /S C:\vcpkg & cd C:\ & git clone --recursive https://github.com/microsoft/vcpkg.git & cd vcpkg & cmd ./bootstrap-vcpkg.bat
+      run: rmdir /S C:\vcpkg & cd C:\ & git clone --recursive https://github.com/microsoft/vcpkg.git & cd vcpkg & Invoke-Expression -Command "C:/vcpkg/bootstrap-vcpkg.bat"
     
     - name: Run vcpkg
       run: cd ${{github.workspace}}/ & vcpkg --feature-flags=manifests install

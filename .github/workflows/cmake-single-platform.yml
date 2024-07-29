@@ -32,8 +32,8 @@ jobs:
         # silence GitHub Annotation notice displayed if resolving `latest` into Vulkan SDK release number
         quiet: true # optional
 
-    # - name: Update vcpkg
-    #   run: rmdir /S C:\vcpkg & cd C:\ & git clone --recursive https://github.com/microsoft/vcpkg.git & cd vcpkg & Invoke-Expression -Command "C:/vcpkg/bootstrap-vcpkg.bat"
+    - name: Update vcpkg
+      run: rmdir /S C:\vcpkg & cd C:\ & git clone --recursive https://github.com/microsoft/vcpkg.git & cd vcpkg & Invoke-Expression -Command "C:/vcpkg/bootstrap-vcpkg.bat"
     
     # - name: Run vcpkg
     #   run: cd ${{github.workspace}}/ & vcpkg --feature-flags=manifests install
@@ -42,7 +42,7 @@ jobs:
       # Build your program with the given configuration
       run: |
         cd ${{github.workspace}}/dependencies
-        start-process "cmd.exe" "/c ${{github.workspace}}/BuildFidelityFXSDK.bat
+        start-process "cmd.exe" "/c" ${{github.workspace}}/BuildFidelityFXSDK.bat
       # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     # - name: Configure CMake

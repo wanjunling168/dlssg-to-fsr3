@@ -42,7 +42,7 @@ jobs:
       # Build your program with the given configuration
       run: |
         cd ${{github.workspace}}/dependencies
-        Start-Process -FilePath "${{github.workspace}}/BuildFidelityFXSDK.bat" -Wait -NoNewWindow
+        Start-Process -FilePath "./BuildFidelityFXSDK.bat" -Wait -NoNewWindow
       # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     # - name: Configure CMake
